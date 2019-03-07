@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable name="girlsItem"
+                  type="google.architecture.coremodel.datamodel.http.entities.GirlsData.ResultsBean"/>
+        <variable name="callback"
+                  type="google.architecture.girls.GirlItemClickCallback"/>
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/size_180dp"
+        android:layout_marginLeft="@dimen/size_4dp"
+        android:layout_marginRight="@dimen/size_4dp"
+        android:layout_marginTop="@dimen/size_4dp"
+        android:onClick="@{() ->  callback.onClick(girlsItem)}">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                bind:image="@{girlsItem.url}"
+                android:adjustViewBounds="true"
+                fresco:actualImageScaleType="centerCrop" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:padding="@dimen/size_4dp"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/text_size_20sp"
+                android:background="#66000000"
+                android:text="@{girlsItem.who}"/>
+    </FrameLayout>
+</layout>

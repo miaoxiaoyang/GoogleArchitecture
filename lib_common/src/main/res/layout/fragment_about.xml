@@ -1,0 +1,73 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="google.architecture.common.ui.FragmentAbout">
+
+    <data>
+
+        <import type="java.util.List" />
+
+        <import type="google.architecture.common.ui.UserData" />
+
+        <variable
+            name="userList"
+            type="List&lt;UserData&gt;" />
+
+        <variable
+            name="userDataOF"
+            type="google.architecture.common.ui.UserDataOF"/>
+
+    </data>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_fragment"
+            android:textSize="@dimen/text_size_20sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20dp"
+            android:text="@{userList.get(0).userName}"
+            android:textSize="@dimen/text_size_20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20dp"
+            android:text="@{userList.get(1).userName}"
+            android:textSize="@dimen/text_size_20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20dp"
+            android:text="@{userDataOF.userName.get()}"
+            android:textSize="@dimen/text_size_20sp" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20dp"
+            android:text="Change User Name"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_20sp" />
+
+        <TextView
+            android:id="@+id/txt_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20dp"
+            android:textSize="@dimen/text_size_20sp" />
+
+    </LinearLayout>
+</layout>
